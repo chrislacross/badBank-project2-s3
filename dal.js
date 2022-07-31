@@ -4,7 +4,7 @@ const mongoURL = process.env.MONGODB_URL
 
 const MongoClient   = require('mongodb').MongoClient;
 // const url           = 'mongodb://localhost:27017';
-const url = 'mongodb+srv://devops2:Develop1@badbank.ituby.mongodb.net/?retryWrites=true&w=majority'
+const url = mongoURL
 let db              = null;
 
 
