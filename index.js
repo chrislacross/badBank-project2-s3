@@ -62,7 +62,7 @@ app.get('/account/balance/:email/:password/:amount', function(req, res) {
 })
 console.log(process.env.PORT)
 
-var port = process.env.PORT || 3000;
+var port = 3000;
 app.listen(port);
 console.log('Running on port: ' + port);
 
