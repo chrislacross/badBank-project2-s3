@@ -1,11 +1,9 @@
 require("dotenv").config();
 
-const mongoURL = process.env.MONGODB_URL
+const mongoURL = process.env.MONGODB_URL || 'mongodb://localhost:27017';
 
 const MongoClient   = require('mongodb').MongoClient;
-// const url           = 'mongodb://localhost:27017';
 const url = mongoURL
-// const url = 'mongodb+srv://devops2:Develop1@badbank.ituby.mongodb.net/?retryWrites=true&w=majority'
 let db              = null;
 
 

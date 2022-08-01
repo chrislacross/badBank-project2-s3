@@ -1,6 +1,4 @@
-
 function Login(props) {
-
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
 
@@ -11,7 +9,11 @@ function Login(props) {
       status={status}
       body={
         show ? (
-          <LoginForm setShow={setShow} setStatus={setStatus} setLoggedInUser={props.setLoggedInUser} />
+          <LoginForm
+            setShow={setShow}
+            setStatus={setStatus}
+            setLoggedInUser={props.setLoggedInUser}
+          />
         ) : (
           <LoginMsg setShow={setShow} setStatus={setStatus} />
         )
@@ -38,17 +40,22 @@ function LoginMsg(props) {
 function LoginForm(props) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const ctx = React.useContext(UserContext);
+  // const ctx = React.useContext(UserContext);
 
   async function handle() {
     //const user = ctx.users.find((user) => user.email == email);
     const url = `/account/login/${email}/${password}`;
 
-    var res = await fetch(url);
-    var data = await res.json();
-    props.setLoggedInUser(data);
-    props.setShow(false);
-    alert("You have successfully logged in.");
+    try {
+      var res = await fetch(url);
+      var data = await res.json();
+      props.setLoggedInUser(data);
+      props.setShow(false);
+      alert("You have successfully logged in.");
+    } catch (error) {
+      console.log(error);
+    }
+
     /*console.log(user);
     console.log(email, password);
     if (!user) {
